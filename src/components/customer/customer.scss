@@ -1,0 +1,38 @@
+.customer {
+  --lh: 20px;
+  border-bottom: 1px solid grey;
+  height: 100px;
+  padding: 15px 25px 30px;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: var(--lh);
+}
+.selected-customer {
+    @extend .customer;
+    background-color: rgb(221, 221, 221);
+    border-right: 2px solid grey;
+}
+
+.truncate-desc {
+  --max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+  padding-right: 20px;
+  font-size: 14px;
+  margin: 0;
+}
+.truncate-desc::before {
+  position: absolute;
+  content: "...";
+  bottom: 0;
+  right: 30px;
+}
+.truncate-desc::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+}

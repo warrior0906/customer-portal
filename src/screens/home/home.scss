@@ -1,0 +1,15 @@
+.home {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: 900px;
+}
+.list {
+  border-right: 1px solid grey;
+  overflow: auto;
+}
+.desc {
+  display: flex;
+  flex: 3;
+  overflow: hidden;
+}
