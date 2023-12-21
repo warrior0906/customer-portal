@@ -11,8 +11,7 @@ const Home = () => {
     if (scrollRef?.current) {
       const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
       if (scrollTop + clientHeight === scrollHeight) {
-        // This will be triggered after hitting the last element.
-        // API call should be made here while implementing pagination.
+        // we can call the API here, to fetch the customer list
       }
     }
   };

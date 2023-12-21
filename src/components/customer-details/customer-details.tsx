@@ -1,22 +1,45 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ICustomerDetailsInterface } from "./customer-details-interface";
 import "./customer-details.scss";
-import { img } from "../../utils";
+import { Images } from "../../utils";
 
 const CustomerDetails = ({ data }: ICustomerDetailsInterface) => {
-  const renderImages = () => (
-    <div className="image-row">
-      <img src={img} alt="img" />
-      <img src={img} alt="img" />
-      <img src={img} alt="img" />
-    </div>
+  const [imgArr, setImgArr] = useState<Array<Array<string>>>(Images());
+  const interval = useRef<any>(null);
+
+  useEffect(() => {
+    clearInterval(interval.current);
+    setImgArr(Images());
+    interval.current = setInterval(() => {
+      setImgArr(Images());
+    }, 10000);
+
+    return () => {
+      clearInterval(interval.current);
+    };
+  }, [data]);
+
+  const renderImages = useCallback(
+    (row: Array<string>) => {
+      console.log("imgArr", row.length, row);
+
+      return (
+        <div className="image-row">
+          {row.map((col: string) => (
+            <img src={col} alt="img" key={col} />
+          ))}
+        </div>
+      );
+    },
+    []
   );
+
   return (
     <div className="customer-details">
       <div className="customer-details-title">{data.detailsTitle}</div>
       <div className="customer-details-desc">{data.desc}</div>
       <div className="image-container">
-        {[1, 2, 3].map(() => renderImages())}
+        {imgArr.map((row) => renderImages(row))}
       </div>
     </div>
   );
