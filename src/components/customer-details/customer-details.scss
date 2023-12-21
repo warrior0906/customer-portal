@@ -1,0 +1,36 @@
+.customer-details {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 100px;
+  padding-bottom: 100px;
+}
+
+.customer-details-title {
+  font-size: 22px;
+  padding: 32px;
+}
+
+.customer-details-desc {
+  font-size: 14px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.image-container {
+  margin-top: 20px;
+  padding-bottom: 100px;
+}
+
+.image-row {
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  border-radius: 10px;
+}

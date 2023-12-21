@@ -4,7 +4,7 @@ import { customerList } from "../../utils";
 import "./home.scss";
 
 const Home = () => {
-  const [selected, setSelected] = useState<number>(-1);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const scrollRef: RefObject<HTMLDivElement> = useRef(null);
 
   const onScroll = () => {
@@ -22,15 +22,17 @@ const Home = () => {
         {customerList()?.map((item: any, index: number) => (
           <Customer
             title={item.title}
-            selected={selected === index}
+            selected={selectedIndex === index}
             key={item.title}
-            onPress={() => setSelected(index)}
+            onPress={() => setSelectedIndex(index)}
           />
         ))}
       </div>
-      <div className="desc">
-        <CustomerDetails />
-      </div>
+      {selectedIndex !== -1 && (
+        <div className="desc">
+          <CustomerDetails data={customerList()[selectedIndex]} />
+        </div>
+      )}
     </div>
   );
 };

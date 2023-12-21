@@ -1,6 +1,8 @@
+@import "../../utils/scss/colors.scss";
+
 .customer {
   --lh: 20px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid $border-color;
   height: 100px;
   padding: 15px 25px 30px;
   max-width: 500px;
@@ -9,8 +11,8 @@
 }
 .selected-customer {
     @extend .customer;
-    background-color: rgb(221, 221, 221);
-    border-right: 2px solid grey;
+    background-color: $border-color;
+    border-right: 2px solid $border-color-dark;
 }
 
 .truncate-desc {
@@ -34,5 +36,5 @@
   right: 0;
   width: 1rem;
   height: 1rem;
-  background: white;
+  background: $background;
 }
