@@ -19,20 +19,15 @@ const CustomerDetails = ({ data }: ICustomerDetailsInterface) => {
     };
   }, [data]);
 
-  const renderImages = useCallback(
-    (row: Array<string>) => {
-      console.log("imgArr", row.length, row);
-
-      return (
-        <div className="image-row">
-          {row.map((col: string) => (
-            <img src={col} alt="img" key={col} />
-          ))}
-        </div>
-      );
-    },
-    []
-  );
+  const renderImages = useCallback((row: Array<string>) => {
+    return (
+      <div className="image-row" key={row.toString()}>
+        {row.map((col: string) => (
+          <img src={col} alt="img" key={col} />
+        ))}
+      </div>
+    );
+  }, []);
 
   return (
     <div className="customer-details">
