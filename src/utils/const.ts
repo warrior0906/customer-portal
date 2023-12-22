@@ -1,3 +1,5 @@
+export const time = 10; //10 secs
+
 /**
  * random Text to be displayed as description
  */

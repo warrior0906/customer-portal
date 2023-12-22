@@ -1,20 +1,30 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ICustomerDetailsInterface } from "./customer-details-interface";
 import "./customer-details.scss";
-import { Images } from "../../utils";
+import { Images, time } from "../../utils";
 
 const CustomerDetails = ({ data }: ICustomerDetailsInterface) => {
   const [imgArr, setImgArr] = useState<Array<Array<string>>>(Images());
   const interval = useRef<any>(null);
 
   useEffect(() => {
+    /**
+     * It will clear the interval and display new set of images when customers is changed
+     */
     clearInterval(interval.current);
     setImgArr(Images());
+
+    /**
+     * To change the pictures in photo grid every 10 secs
+     */
     interval.current = setInterval(() => {
       setImgArr(Images());
-    }, 10000);
+    }, time * 1000);
 
     return () => {
+      /**
+       * It will clear the interval on component unmount
+       */
       clearInterval(interval.current);
     };
   }, [data]);
