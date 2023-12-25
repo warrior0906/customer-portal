@@ -34,3 +34,16 @@ img {
   margin: 20px;
   border-radius: 10px;
 }
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 65%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 90%);
+  }
+}

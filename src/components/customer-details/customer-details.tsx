@@ -33,7 +33,7 @@ const CustomerDetails = ({ data }: ICustomerDetailsInterface) => {
     return (
       <div className="image-row" key={row.toString()}>
         {row.map((col: string) => (
-          <img src={col} alt="img" key={col} />
+          <img className="skeleton" src={col} alt="img" key={col} />
         ))}
       </div>
     );
